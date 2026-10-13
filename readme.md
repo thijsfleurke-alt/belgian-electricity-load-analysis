@@ -94,3 +94,13 @@ This project will be extended with:
 ## Author
 
 Independent Python energy analytics portfolio project.
+
+### Weekday versus weekend electricity demand
+
+![Belgian electricity demand by day type](elia_werkdagen_weekends.png)
+
+The average electricity load is lower during weekends,
+particularly during morning hours.
+
+pandas>=3.0,<4.0
+matplotlib>=3.10,<4.0
