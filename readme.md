@@ -104,3 +104,26 @@ particularly during morning hours.
 
 pandas>=3.0,<4.0
 matplotlib>=3.10,<4.0
+
+## Week 3 — Elia API Data Pipeline
+
+In week 3 is een automatische downloadfunctie
+ontwikkeld voor de Elia Open Data API.
+
+Functionaliteiten:
+- Elektriciteitsgegevens ophalen via HTTP API
+- JSON omzetten naar pandas DataFrames
+- Datumfilters en pagination
+- Automatisch meerdere pagina's downloaden
+- Controle op ontbrekende en dubbele metingen
+- Controle op ontbrekende kwartieren
+
+### Belangrijkste bestanden
+
+- `elia_download.py`: herbruikbare downloadfunctie
+- `controle_elia.py`: automatische datakwaliteitscontroles
+
+### Uitvoeren
+
+```powershell
+python controle_elia.py
