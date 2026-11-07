@@ -127,3 +127,59 @@ Functionaliteiten:
 
 ```powershell
 python controle_elia.py
+
+
+## Week 4 — Belgian Energy Data Pipeline
+
+De Elia-datapipeline is uitgebreid met automatische
+verwerking, kwaliteitscontrole en Parquet-opslag.
+
+### Functionaliteiten
+
+- Elia-belastinggegevens ophalen via de API
+- Automatisch meerdere API-pagina's downloaden
+- Zelf een jaar en maand selecteren
+- Kwartiermetingen aggregeren naar uurwaarden
+- Vermogen (MW) omrekenen naar energie (MWh)
+- Belgische zomer- en wintertijd correct verwerken
+- Ontbrekende en dubbele tijdstippen controleren
+- Gevalideerde uurdata opslaan als Parquet
+- SQL-analyses uitvoeren met DuckDB
+
+### Pipeline uitvoeren
+
+```powershell
+python run_pipeline.py
+```
+
+Stel bovenaan `run_pipeline.py` het gewenste jaar
+en de gewenste maand in.
+
+### Validatieresultaten
+
+| Maand | Kwartieren | Uren | Energie (MWh) |
+|---|---:|---:|---:|
+| Januari 2025 | 2976 | 744 | 7778243.08 |
+| Februari 2025 | 2688 | 672 | 6951322.62 |
+| Maart 2025 | 2972 | 743 | 6759782.66 |
+| Oktober 2025 | 2980 | 745 | 6841984.41 |
+
+De pipeline is getest op gewone maanden en
+beide omschakelingen tussen zomer- en wintertijd.
+
+### Opslag
+
+De uurgegevens worden opgeslagen als Parquet
+in de map `data/`.
+
+In een vergelijking met CSV was het Parquet-bestand
+voor januari 2025 63,1% kleiner.
+
+### Huidige beperkingen
+
+De pipeline verwerkt voorlopig Elia-belastinggegevens.
+De elektriciteitsprijzen uit de merge-oefening waren
+fictief en maken geen deel uit van de productiepipeline.
+
+Forecasting en aanvullende marktvariabelen
+worden in volgende opleidingsweken toegevoegd.
