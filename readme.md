@@ -183,3 +183,66 @@ fictief en maken geen deel uit van de productiepipeline.
 
 Forecasting en aanvullende marktvariabelen
 worden in volgende opleidingsweken toegevoegd.
+
+
+## Week 5 — Statistical Analysis & Load Forecasting
+
+In week 5 zijn de eerste voorspellingsmodellen ontwikkeld
+voor de Belgische elektriciteitsbelasting.
+
+### Onderwerpen
+
+- Beschrijvende statistiek en standaardafwijking
+- Dagelijkse en wekelijkse belastingprofielen
+- Chronologische train/test-splitsing
+- Forecasting met uur- en kalenderfeatures
+- Seasonal naïve forecasting
+- MAE, RMSE en bias
+- Walk-forward validation
+- Ensemble forecasting
+- Residual analysis
+- Feature engineering en data leakage
+- Modelcomplexiteit en trainingsperiode
+
+### Forecastingmodellen
+
+- Model 1: Gemiddeld belastingprofiel per uur
+- Model 2: Uur + werkdag/weekend
+- Model 3: Belasting 24 uur eerder
+- Model 4: Belasting 48 uur eerder
+- Model 5: Belasting 168 uur eerder
+- Model 6: Ensemble van model 2 en model 5
+- Model 7: Uur + afzonderlijke weekdag
+
+### Walk-forward-backtest februari 2025
+
+Training begint op 1 januari 2025.
+Er zijn vier opeenvolgende testweken.
+
+| Model | Gemiddelde MAE |
+|---|---:|
+| Model 2 | 446.84 MW |
+| Model 5 | 529.59 MW |
+| Model 7 | 453.73 MW |
+
+Model 2 presteerde het best op deze testperiode.
+
+### Belangrijkste inzichten
+
+- Meer modelcomplexiteit betekent niet automatisch
+  betere forecastingprestaties.
+- Modellen kunnen verschillend presteren per testweek.
+- Train- en testperiodes moeten chronologisch gescheiden zijn.
+- Historische informatie moet beschikbaar zijn op het
+  werkelijke moment van voorspellen.
+- Extra features zoals weersverwachtingen kunnen nuttig zijn,
+  maar hun effect moet nog worden getest.
+
+### Beperkingen
+
+De resultaten zijn gebaseerd op januari en februari 2025.
+Er is nog geen uitgebreide evaluatie over meerdere seizoenen.
+Het betreft load forecasting, nog geen elektriciteitsprijsmodel.
+
+De backtests zijn onderzoeksprototypes en nog geen
+volledig productiegetrouwe day-ahead-simulaties.
